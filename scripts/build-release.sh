@@ -11,7 +11,7 @@ if [[ ! -f "$SRC_DIR/manifest.json" ]]; then
 fi
 
 VERSION="$(node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('$SRC_DIR/manifest.json','utf8')); process.stdout.write(m.version)")"
-BASENAME="${RELEASE_BASENAME:-pk-chrome-shortcuts}"
+BASENAME="${RELEASE_BASENAME:-pk-shortcuts}"
 ZIP_FILE="$OUT_DIR/${BASENAME}-${VERSION}.zip"
 
 mkdir -p "$OUT_DIR"
