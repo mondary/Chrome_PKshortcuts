@@ -1,21 +1,21 @@
-# PK Chrome Shortcuts - Chrome Web Store Deployment Guide
+# PKshortcuts - Chrome Web Store Deployment Guide
 
 ## 1. Manifest Configuration
 - **manifest_version**: 3
 - **author**: cmondary
 - **website**: https://mondary.design
-- **version format**: X.YY (e.g., 1.27)
-- **name**: PK Chrome Shortcuts (67🎛️)
+- **version format**: X.YY (e.g., 1.28)
+- **name**: PKshortcuts (67🎛️)
 
 ## 2. ZIP Command for Extension
 ```bash
 cd /Users/clm/Documents/GitHub/PROJECTS/Chrome_PKchromeShortcuts/extension
-zip -r pk-chrome-shortcuts-1.27.zip -C ../src .
+zip -r pk-chrome-shortcuts-1.28.zip -C ../src .
 ```
 
 Or from src directory:
 ```bash
-zip -r ../extension/pk-chrome-shortcuts-1.27.zip .
+zip -r ../extension/pk-chrome-shortcuts-1.28.zip .
 ```
 
 ## 3. Image Requirements for Chrome Web Store
