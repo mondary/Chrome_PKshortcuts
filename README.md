@@ -4,7 +4,7 @@
 
 [🇫🇷 FR](README.md) · [🇬🇧 EN](README_en.md)
 
-✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier.
+✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
 ## ✅ Fonctionnalités
 - Badge sur l’icône extension: compteur du nombre total d’onglets ouverts.
@@ -56,6 +56,7 @@
 4. Sélectionne `.../Chrome_PKchromeShortcuts/src`
 
 ## 🧾 Changelog
+- `1.29`: Mise à jour branding PK-Labs, noms cohérents et descriptions optimisées
 - `1.26`: delais augmentes pour la copie automatique (1.5s + 2s cooldown).
 - `1.24`: ajout copie automatique de texte sélectionné.
 - `1.23`: suppression des ancres EN/FR inutiles sur la page de confidentialite.
@@ -86,4 +87,9 @@
 - `0.43`: hard reload par défaut en `Cmd+Shift+R`.
 
 ## 🔗 Liens
+- **Chrome Web Store** : [PK Chrome Shortcuts](https://chromewebstore.google.com/detail/)
+- **Politique de confidentialité** : [privacy-policy.html](privacy-policy.html)
+- **Politique de confidentialité repo** : [PRIVACY.md](PRIVACY.md)
+- **Site** : [mondary.design](https://mondary.design)
+- **Description** : [store/DESCRIPTION.md](store/DESCRIPTION.md)
 - EN README: [README_en.md](README_en.md)

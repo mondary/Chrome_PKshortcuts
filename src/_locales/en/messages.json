@@ -1,9 +1,9 @@
 {
   "extName": {
-    "message": "PKshortcuts (67🎛️)"
+    "message": "PK Chrome Shortcuts"
   },
   "extDescription": {
-    "message": "Chrome shortcuts: simulated split view and tab utilities."
+    "message": "67 keyboard shortcuts for Chrome. Made by PK-Labs."
   },
   "cmd_detach_current_tab_desc": {
     "message": "🗂️ Detach current tab · Chrome: Not set · 🎯 Suggestion: Cmd+U"

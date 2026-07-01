@@ -1,9 +1,9 @@
 {
   "extName": {
-    "message": "PKshortcuts (67🎛️)"
+    "message": "PK Chrome Shortcuts"
   },
   "extDescription": {
-    "message": "Raccourcis Chrome : split simule et utilitaires d'onglets."
+    "message": "67 raccourcis clavier pour Chrome. Made by PK-Labs."
   },
   "cmd_detach_current_tab_desc": {
     "message": "🗂️ Detacher l'onglet actif · Chrome: Non defini · 🎯 Suggestion: Cmd+U"
