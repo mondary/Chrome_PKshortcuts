@@ -6,7 +6,7 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.09.1** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.09.2** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -70,5 +70,13 @@
 ## 📋 Changelog
 See [CHANGELOG.md](CHANGELOG.md) for full history.
 
+## ❤️ Support
+Support this project on [Ko-fi](https://ko-fi.com/pouark).
+
 ## 🔗 Links
+- **Chrome Web Store**: [PK Chrome Shortcuts](https://chromewebstore.google.com/detail/)
+- **Privacy policy**: [privacy-policy.html](privacy-policy.html)
+- **Repo privacy policy**: [PRIVACY.md](PRIVACY.md)
+- **Site**: [mondary.design](https://mondary.design)
+- **Description**: [store/DESCRIPTION.md](store/DESCRIPTION.md)
 - 🇫🇷 FR README: [README.md](README.md)

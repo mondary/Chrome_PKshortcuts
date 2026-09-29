@@ -6,7 +6,7 @@
 
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.09.1** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.09.2** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -69,6 +69,9 @@
 
 ## 📋 Changelog
 Voir le [CHANGELOG.md](CHANGELOG.md) pour l'historique complet.
+
+## ❤️ Soutenir
+Soutenir ce projet sur [Ko-fi](https://ko-fi.com/pouark).
 
 ## 🔗 Liens
 - **Chrome Web Store** : [PK Chrome Shortcuts](https://chromewebstore.google.com/detail/)

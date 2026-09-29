@@ -6,11 +6,18 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.9.1`
+Statut : `2026.9.2`
 
 ---
 
 ## Releases
+
+### [2026.9.2] - 2026-09-29
+
+#### Added
+- kit média store : bannière 1544×500, card 1200×675, capture options, vidéo démo, laius `store/description-store.md`
+- lien de soutien Ko-fi (https://ko-fi.com/pouark) dans README.md, README_en.md et l'onglet À propos de la page options
+- section Liens du README_en synchronisée sur README.md
 
 ### [2026.9.1] - 2026-09-29
 
