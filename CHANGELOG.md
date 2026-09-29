@@ -6,11 +6,21 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.9.2`
+Statut : `2026.9.3`
 
 ---
 
 ## Releases
+
+### [2026.9.3] - 2026-09-29
+
+#### Added
+- landing promo bilingue FR/EN dans `store2/` : bureau Mac immersif, hero parallaxe GSAP/ScrollTrigger, keycaps Three.js différés, séquence scroll épinglée, playground interactif (navigation, déduplication, split, détachement, traduction démo), nettoyeur d'URL exécutant le moteur de production, catalogue des 70 entrées de commandes, galerie des captures réelles agrandissables
+- kit média `store2/` : 15 captures (9 vues de production + 6 scènes playground), bannière 1544×500, card OG 1200×630, GIF large + compact, MP4 playground 12 s, planche contact
+- pipeline de capture reproductible (`store2/media-kit/` : préparation, captures iris, export frames ego, QA 21 checks + 4 viewports + mouvement réduit)
+
+#### Changed
+- README.md / README_en.md : lien vers la landing store2, version 2026.09.3
 
 ### [2026.9.2] - 2026-09-29
 

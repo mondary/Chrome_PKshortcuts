@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PK Shortcuts — boucle du playground</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:1200px;height:675px;overflow:hidden;background:#152238}.stage{position:relative;width:1200px;height:675px;overflow:hidden}iframe{border:0;width:1200px;height:675px;pointer-events:none}#cursor{position:absolute;z-index:10;width:20px;height:28px;filter:drop-shadow(0 2px 2px #0008);pointer-events:none}#click{position:absolute;z-index:9;width:38px;height:38px;border:2px solid #ffb547;border-radius:50%;opacity:0;pointer-events:none}.capture-tag{position:absolute;top:10px;right:22px;color:#ffffffa0;font:10px -apple-system,sans-serif;z-index:4}
+</style></head><body><div class="stage"><iframe id="demo" src="../index.html?capture=1&lang=fr" title="Playground de démonstration"></iframe><span class="capture-tag">DÉMO INTERACTIVE · DONNÉES FICTIVES</span><svg id="cursor" viewBox="0 0 20 28"><path d="M2 1L18 16L11 17L15 25L11 27L7 19L2 23Z" fill="white" stroke="#152238" stroke-width="1.5"/></svg><div id="click"></div></div><script>
+const iframe = document.getElementById('demo');
+let previous = -1;
+iframe.addEventListener('load', () => {
+  const doc = iframe.contentDocument;
+  const style = doc.createElement('style');
+  style.textContent = `html{scroll-behavior:auto!important}body{overflow:hidden}body>.menubar,body>.site-footer,main>section:not(#playground),.playground-heading,.skip-link{display:none!important}.playground-section{padding:0}.playground-desktop{margin:0;border-radius:0;min-height:675px;height:675px;padding:84px 100px 60px}.playground-tabs{top:45px}.playground-desktop>.browser-scene{margin-top:15px;min-height:355px}.playground-desktop .browser-article{min-height:240px}.playground-desktop .article-photo{min-height:240px}.playground-desktop .article-text{padding:22px 28px}.playground-desktop .article-kicker{margin-bottom:20px}.playground-desktop .article-text h3{font-size:31px}.demo-control-panel{margin-top:12px;padding:14px 20px;max-width:none}.playground-desktop .secondary-browser .browser-article{min-height:240px;padding:22px}.browser-scene.is-split>.primary-browser .article-text{min-height:240px}.desktop-footer{bottom:14px}.demo-translation{top:185px}.menu-clock,.playground-counter{visibility:hidden}`;
+  doc.head.append(style);
+  window.seekDemo(0);
+  document.documentElement.dataset.ready = 'true';
+});
+window.seekDemo = (time) => {
+  const w = iframe.contentWindow, doc = iframe.contentDocument;
+  if (!w.PK_DEMO) return;
+  const phase = time < 2 ? 0 : time < 4 ? 1 : time < 6 ? 2 : time < 9 ? 3 : 4;
+  const local = time - [0,2,4,6,9][phase];
+  if (phase !== previous) {
+    w.PK_DEMO.reset();
+    if (phase === 1) { w.PK_DEMO.selectDemo('navigate'); w.PK_DEMO.act('next'); }
+    if (phase === 2) { w.PK_DEMO.selectDemo('organize'); w.PK_DEMO.act('dedup'); }
+    if (phase === 3) { w.PK_DEMO.selectDemo('split'); w.PK_DEMO.act('split'); }
+    if (phase === 4) { w.PK_DEMO.selectDemo('translate'); w.PK_DEMO.act('translate'); }
+    previous = phase;
+  }
+  // A small visual handoff between actual playground states; all controls use the site code.
+  const browser = doc.querySelector('#play-scene');
+  const fade = Math.min(1, local / .28);
+  browser.style.opacity = String(.55 + fade * .45);
+  browser.style.transform = `translateY(${(1-fade)*8}px)`;
+  const positions = [[805,560],[840,560],[790,560],[870,558],[760,558]];
+  const from = positions[Math.max(0,phase-1)], to = positions[phase];
+  const progress = Math.min(1, local / .65), ease = 1 - Math.pow(1-progress,3);
+  const x = from[0] + (to[0]-from[0])*ease, y = from[1]+(to[1]-from[1])*ease;
+  const cursor = document.getElementById('cursor'); cursor.style.left=x+'px'; cursor.style.top=y+'px';
+  const ring=document.getElementById('click');ring.style.left=(to[0]-10)+'px';ring.style.top=(to[1]-10)+'px';
+  ring.style.opacity=String(local < .5 ? 1-local*2 : 0);ring.style.transform=`scale(${.6+Math.min(local,.5)*1.2})`;
+};
+// For a live preview, append ?play=1. Exports call seekDemo(t) explicitly.
+if(new URLSearchParams(location.search).has('play')){let start=performance.now();function play(now){if(document.documentElement.dataset.ready)window.seekDemo(((now-start)/1000)%12);requestAnimationFrame(play)}requestAnimationFrame(play)}
+</script></body></html>
