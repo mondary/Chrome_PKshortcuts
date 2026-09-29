@@ -6,6 +6,8 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
+> Version **2026.09.1** — history: [CHANGELOG.md](CHANGELOG.md)
+
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
 - `Cmd + Option + Click` on a link: simulated split view (side-by-side windows).

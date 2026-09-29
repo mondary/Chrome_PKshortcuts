@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE_DIR="$ROOT_DIR/src"
-ARTIFACT_DIR="$ROOT_DIR/extension"
+ARTIFACT_DIR="$ROOT_DIR/release"
 cd "$ROOT_DIR"
 
 require_cmd() {
@@ -73,7 +73,7 @@ CWS_SKIP_PUBLISH="${CWS_SKIP_PUBLISH:-0}"
 
 EXT_VERSION="$(node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('$SOURCE_DIR/manifest.json','utf8'));process.stdout.write(m.version)")"
 mkdir -p "$ARTIFACT_DIR"
-ZIP_FILE="${CWS_ZIP_FILE:-extension/${CWS_EXTENSION_ID}-${EXT_VERSION}.zip}"
+ZIP_FILE="${CWS_ZIP_FILE:-release/${CWS_EXTENSION_ID}-${EXT_VERSION}.zip}"
 ZIP_FILE_ABS="$ROOT_DIR/$ZIP_FILE"
 
 echo "Building package from $SOURCE_DIR: $ZIP_FILE_ABS"

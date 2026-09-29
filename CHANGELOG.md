@@ -6,11 +6,20 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.07.01`
+Statut : `2026.9.1`
 
 ---
 
 ## Releases
+
+### [2026.9.1] - 2026-09-29
+
+#### Changed
+- publish-cws.sh : artefacts écrits dans `release/` au lieu de `extension/` (aligné sur build-release.sh)
+- manifest.version sérialisé sans zéros initiaux (`2026.9.1`) + `version_name` `2026.09.1` (format valide Chrome Web Store)
+
+#### Fixed
+- suppression du fichier `VERSION` legacy : le CHANGELOG est la source de vérité (convention pk-commits)
 
 ### [2026.07.01] - 2026-07-30
 
