@@ -6,11 +6,24 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.9.3`
+Statut : `2026.10.1`
 
 ---
 
 ## Releases
+
+### [2026.10.1] - 2026-10-01
+
+#### Changed
+- politique de confidentialité FR/EN : divulgation du texte transmis à Google Translate ou MyMemory pour la traduction, uniquement à la demande de l'utilisateur
+- liens Ko-fi visibles en rouge en haut et en bas de la landing, liens directs GitHub et Chrome Web Store
+- fiche CWS : préparation de la publication de la version 2026.10.1
+
+### [2026.9.4] - 2026-10-01
+
+#### Changed
+- landing `store2/` : liens Ko-fi rouges et visibles en haut et en bas, liens directs vers GitHub et la fiche Chrome Web Store
+- synchronisation de la version de l'extension et des README en `2026.09.4`
 
 ### [2026.9.3] - 2026-09-29
 
