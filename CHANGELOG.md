@@ -6,11 +6,17 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.10.1`
+Statut : `2026.10.2`
 
 ---
 
 ## Releases
+
+### [2026.10.2] - 2026-10-01
+
+#### Changed
+- réorganisation des ressources promotionnelles : ancien matériel store archivé sous `store/v1/`, landing et kit média déplacés dans `store/website/`
+- synchronisation des chemins et de l'icône dans les README FR/EN
 
 ### [2026.10.1] - 2026-10-01
 

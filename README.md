@@ -1,12 +1,15 @@
 # PK Chrome Shortcuts
 
-![Project icon](icon2.png)
+![Project icon](icon.png)
 
 [🇫🇷 FR](README.md) · [🇬🇧 EN](README_en.md)
 
+![Réglages de PK Chrome Shortcuts en thème sombre](store/website/screenshots/01-features-dark.png)
+![Réglages de PK Chrome Shortcuts en thème clair](store/website/screenshots/02-features-light.png)
+
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.10.1** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.10.2** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -33,7 +36,7 @@
 - `release/`: ZIPs de release générés localement.
 - `scripts/`: build et publication Chrome Web Store.
 - `secrets/`: fichiers locaux sensibles non versionnés.
-- `icon.png` et `icon2.png`: assets de projet conservés à la racine.
+- `icon.png`: icône canonique du projet et de l'extension.
 
 ## ⚙️ Réglages
 - Les raccourcis sont gérés nativement par Chrome dans `chrome://extensions/shortcuts`.
@@ -79,6 +82,6 @@ Soutenir ce projet sur [Ko-fi](https://ko-fi.com/pouark).
 - **Politique de confidentialité** : [privacy-policy.html](privacy-policy.html)
 - **Politique de confidentialité repo** : [PRIVACY.md](PRIVACY.md)
 - **Site** : [mondary.design](https://mondary.design)
-- **Landing promo** : [store2/](store2/index.html) (bilingue FR/EN, playground interactif)
-- **Description** : [store/DESCRIPTION.md](store/DESCRIPTION.md)
+- **Landing promo** : [store/website/](store/website/index.html) (bilingue FR/EN, playground interactif)
+- **Description** : [store/v1/description-store.md](store/v1/description-store.md)
 - 🇬🇧 EN README: [README_en.md](README_en.md)

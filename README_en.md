@@ -1,12 +1,15 @@
 # PK Chrome Shortcuts
 
-![Project icon](icon2.png)
+![Project icon](icon.png)
 
 [🇬🇧 EN](README_en.md) · [🇫🇷 FR](README.md)
 
+![PK Chrome Shortcuts settings in dark theme](store/website/screenshots/01-features-dark.png)
+![PK Chrome Shortcuts settings in light theme](store/website/screenshots/02-features-light.png)
+
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.10.1** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.10.2** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -33,7 +36,7 @@
 - `release/`: locally generated release ZIPs.
 - `scripts/`: build and Chrome Web Store publish scripts.
 - `secrets/`: unversioned local sensitive files.
-- `icon.png` and `icon2.png`: project assets kept at the repo root.
+- `icon.png`: canonical project and extension icon.
 
 ## ⚙️ Settings
 - Shortcuts are managed natively by Chrome in `chrome://extensions/shortcuts`.
@@ -79,6 +82,6 @@ Support this project on [Ko-fi](https://ko-fi.com/pouark).
 - **Privacy policy**: [privacy-policy.html](privacy-policy.html)
 - **Repo privacy policy**: [PRIVACY.md](PRIVACY.md)
 - **Site**: [mondary.design](https://mondary.design)
-- **Promo landing**: [store2/](store2/index.html) (bilingual FR/EN, interactive playground)
-- **Description**: [store/DESCRIPTION.md](store/DESCRIPTION.md)
+- **Promo landing**: [store/website/](store/website/index.html) (bilingual FR/EN, interactive playground)
+- **Description**: [store/v1/description-store.md](store/v1/description-store.md)
 - 🇫🇷 FR README: [README.md](README.md)
