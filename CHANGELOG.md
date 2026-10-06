@@ -6,11 +6,21 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.10.2`
+Statut : `2026.10.3`
 
 ---
 
 ## Releases
+
+### [2026.10.3] - 2026-10-06
+
+#### Added
+- page options : accès direct à l'éditeur de raccourcis Chrome (entrée dédiée « ⌨️ Raccourcis » en tête de sidebar + bannière sur la page Features), la commande étant la feature principale de l'extension
+- page À propos : bibliothèque d'apps PK-Labs (mondary.design/apps) et lien Issues GitHub
+
+#### Changed
+- page À propos refondue façon macOS : icône 88 px, version lue au runtime, texte de présentation, footer meta (licence, Manifest V3)
+- bouton « Soutenir sur Ko-fi » aux couleurs officielles Ko-fi (rouge #FF5E5B + tasse) en remplacement du lien discret
 
 ### [2026.10.2] - 2026-10-01
 

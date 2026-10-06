@@ -101,8 +101,12 @@ function bindNav() {
 }
 
 function bindAbout() {
-  $("open-shortcuts").addEventListener("click", () => {
+  const openShortcutsEditor = () => {
     chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
+  };
+  ["open-shortcuts", "nav-shortcuts", "open-shortcuts-features"].forEach((id) => {
+    const btn = $(id);
+    if (btn) btn.addEventListener("click", openShortcutsEditor);
   });
 }
 

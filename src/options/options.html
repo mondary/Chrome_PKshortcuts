@@ -34,6 +34,11 @@
     <!-- ============ SIDEBAR ============ -->
     <aside class="sidebar">
       <nav class="nav">
+        <button class="nav-item nav-action" type="button" id="nav-shortcuts" title="Éditer les raccourcis clavier">
+          <span class="nav-emoji">⌨️</span>
+          <span class="nav-label">Raccourcis</span>
+          <span class="nav-external" aria-hidden="true">↗</span>
+        </button>
         <button class="nav-item active" type="button" data-target="features">
           <span class="nav-emoji">⚡</span>
           <span class="nav-label">Features</span>
@@ -73,6 +78,16 @@
           <h2 class="page-title">Features</h2>
           <p class="page-hint">Active ou désactive les comportements globaux.</p>
         </header>
+
+        <div class="info-banner shortcuts-banner">
+          <span class="info-emoji">⌨️</span>
+          <div class="shortcuts-banner-text">
+            <strong>Les raccourcis sont la feature n°1 — et ils se règlent dans Chrome.</strong>
+            Chrome gère lui-même les raccourcis d'extensions. Ouvre l'éditeur natif pour
+            personnaliser chaque combinaison (traduction, URL Cleaner, navigation…).
+          </div>
+          <button id="open-shortcuts-features" class="primary-btn" type="button">Éditer les raccourcis →</button>
+        </div>
 
         <div class="card">
           <div class="card-body">
@@ -214,26 +229,71 @@
           <p class="page-hint">Infos, liens utiles et configuration des raccourcis.</p>
         </header>
 
+        <!-- Hero façon « À propos » macOS -->
+        <div class="about-hero">
+          <img src="../icon.png" alt="" class="about-icon" />
+          <h3 class="about-name">PK Shortcuts</h3>
+          <p class="about-version">Version <span id="about-version"></span></p>
+          <p class="about-author">Par PK-Labs</p>
+          <div class="about-text">
+            <p class="about-hello">Salut l'ami,</p>
+            <p>
+              PK Shortcuts met les bons gestes Chrome sous les doigts : copie instantanée,
+              nettoyage d'URL de tracking, tri des onglets, traduction à la volée —
+              sans compte, sans tracking, sans serveur.
+            </p>
+            <p>
+              Extension Manifest V3, zéro dépendance externe, réglages synchronisés
+              entre tes appareils via Chrome Sync.
+            </p>
+            <p class="about-sign">— PK-Labs</p>
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-body">
             <div class="about-row">
-              <span class="row-label">Extension</span>
-              <span class="about-value">PK Chrome Shortcuts · v<span id="about-version"></span></span>
+              <span class="row-label">Raccourcis clavier</span>
+              <button id="open-shortcuts" class="ghost-btn" type="button">Éditeur Chrome →</button>
             </div>
             <div class="about-row">
-              <span class="row-label">Raccourcis clavier</span>
-              <button id="open-shortcuts" class="ghost-btn" type="button">chrome://extensions/shortcuts →</button>
+              <span class="row-text">
+                <span class="row-label">Bibliothèque d'apps</span>
+                <span class="row-desc">Toutes mes apps Mac, Chrome &amp; web.</span>
+              </span>
+              <a class="ghost-btn" href="https://mondary.design/apps/" target="_blank" rel="noopener noreferrer">mondary.design/apps ↗</a>
             </div>
             <div class="about-row">
               <span class="row-label">Aide / Documentation</span>
               <a class="ghost-btn" href="https://github.com/mondary/Chrome_PKshortcuts" target="_blank" rel="noopener noreferrer">GitHub →</a>
             </div>
             <div class="about-row">
-              <span class="row-label">Soutenir</span>
-              <a class="ghost-btn" href="https://ko-fi.com/pouark" target="_blank" rel="noopener noreferrer">Soutenir sur Ko-fi →</a>
+              <span class="row-label">Un bug ? Une idée ?</span>
+              <a class="ghost-btn" href="https://github.com/mondary/Chrome_PKshortcuts/issues" target="_blank" rel="noopener noreferrer">Issues →</a>
+            </div>
+            <div class="about-row">
+              <span class="row-text">
+                <span class="row-label">Soutenir</span>
+                <span class="row-desc">Si l'extension te fait gagner du temps.</span>
+              </span>
+              <a class="kofi-btn" href="https://ko-fi.com/pouark" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+                  <path fill="#ffffff" d="M10.2 8.9C8.1 7.3 6.9 6.2 6.9 4.9c0-1.1.85-1.9 1.9-1.9.55 0 1.05.25 1.4.7.35-.45.85-.7 1.4-.7 1.05 0 1.9.8 1.9 1.9 0 1.3-1.2 2.4-3.3 4z"/>
+                  <path fill="#ffffff" fill-rule="evenodd" d="M4.5 10h11.3v5a4 4 0 0 1-4 4H8.5a4 4 0 0 1-4-4v-5zm12.2 1.5h.7a2.25 2.25 0 1 1 0 4.5h-.7v-1.5h.7a.75.75 0 1 0 0-1.5h-.7v-1.5z" clip-rule="evenodd"/>
+                </svg>
+                Soutenir sur Ko-fi
+              </a>
             </div>
           </div>
         </div>
+
+        <footer class="about-footer">
+          <span>MIT License</span>
+          <span aria-hidden="true">·</span>
+          <span>Chrome Manifest V3</span>
+          <span aria-hidden="true">·</span>
+          <span>Fait avec ❤ en France</span>
+        </footer>
       </section>
 
       <!-- ============ PAGE: TRANSLATE ============ -->
