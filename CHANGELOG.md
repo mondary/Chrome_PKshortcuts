@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.3`
+Statut : `2026.11.4`
 
 ---
 
 ## Releases
+
+### [2026.11.4] - 2026-11-16
+
+#### Fixed
+- manifest : clé publique Chrome Web Store épinglée, l'extension non empaquetée conserve l'ID `cjgecoangnnoihcdplnoanbmajpanned` et les raccourcis clavier assignés dans Chrome après un rechargement
 
 ### [2026.11.3] - 2026-11-16
 
