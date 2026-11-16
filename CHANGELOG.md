@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.2`
+Statut : `2026.11.3`
 
 ---
 
 ## Releases
+
+### [2026.11.3] - 2026-11-16
+
+#### Fixed
+- traduction : détection automatique de la langue source via `chrome.i18n.detectLanguage`, aucune traduction ni popup quand le texte est déjà dans la langue cible (fr→fr) ; le raccourci manuel et le testeur affichent « déjà en … »
 
 ### [2026.11.2] - 2026-11-16
 

@@ -158,8 +158,12 @@ function bindTranslate() {
       });
       if (response?.ok && response.result) {
         const r = response.result;
-        const truncated = r.truncated ? " [tronqué]" : "";
-        output.textContent = `${r.text}${truncated}  ·  via ${r.source}`;
+        if (r.sameLanguage) {
+          output.textContent = `Déjà en ${(r.detected || "?").toUpperCase()} — rien à traduire.`;
+        } else {
+          const truncated = r.truncated ? " [tronqué]" : "";
+          output.textContent = `${r.text}${truncated}  ·  via ${r.source}`;
+        }
       } else if (response?.error) {
         output.textContent = `Erreur : ${response.error}`;
       } else {

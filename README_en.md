@@ -9,7 +9,7 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.11.2** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.3** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -21,7 +21,7 @@
 - Grouped command labels with emojis in `chrome://extensions/shortcuts`.
 - 🧹 URL Cleaner: strips tracking params (utm, fbclid, gclid, etc.) with strict/balanced/light/custom modes.
 - ♻️ Tab Deduplicator: detects and closes duplicate tabs.
-- 🌐 Inline translation: translates selection on the fly (Google + MyMemory).
+- 🌐 Inline translation: translates selection on the fly (Google + MyMemory), with automatic source-language detection — skipped when the text is already in the target language.
 - 📑 Auto-collapse: automatically collapses tab groups when leaving them.
 - 💾 Backup: import/export/reset configuration.
 

@@ -32,11 +32,71 @@ const Translator = {
     return code;
   },
 
+  normalizeLang(code) {
+    return String(code || "").trim().toLowerCase().replace(/_/g, "-");
+  },
+
+  sameLanguage(a, b) {
+    const left = this.normalizeLang(a);
+    const right = this.normalizeLang(b);
+    if (!left || !right) return false;
+    if (left === right) return true;
+    const [baseLeft, regionLeft] = left.split("-");
+    const [baseRight, regionRight] = right.split("-");
+    if (baseLeft !== baseRight) return false;
+    // Same base: only skip when regions don't conflict (zh-CN vs zh-TW must translate).
+    if (regionLeft && regionRight) return regionLeft === regionRight;
+    return true;
+  },
+
+  async detect(text) {
+    const sample = String(text || "").trim().slice(0, 600);
+    if (!sample) return null;
+    const api = globalThis.chrome?.i18n?.detectLanguage;
+    if (typeof api !== "function") return null;
+    const result = await new Promise((resolve) => {
+      let settled = false;
+      const done = (value) => {
+        if (settled) return;
+        settled = true;
+        resolve(value || null);
+      };
+      try {
+        const maybePromise = api.call(chrome.i18n, sample, done);
+        if (maybePromise && typeof maybePromise.then === "function") {
+          maybePromise.then(done, () => done(null));
+        }
+      } catch {
+        done(null);
+      }
+    });
+    const top = result?.languages?.[0];
+    if (!top?.language) return null;
+    return {
+      language: top.language,
+      reliable: !!result.isReliable,
+      percentage: Number(top.percentage) || 0
+    };
+  },
+
   async translate(text, targetCode, apiMode) {
     const target = this.resolveTarget(targetCode);
     const trimmed = String(text || "").trim();
     if (!trimmed) {
       return { text: "", detected: "", source: "none" };
+    }
+    const detection = await this.detect(trimmed);
+    if (
+      detection &&
+      this.sameLanguage(detection.language, target) &&
+      (detection.reliable || detection.percentage >= 60)
+    ) {
+      return {
+        text: "",
+        detected: detection.language,
+        source: "none",
+        sameLanguage: true
+      };
     }
     if (trimmed.length > TRANSLATE_MAX_CHARS) {
       const truncated = trimmed.slice(0, TRANSLATE_MAX_CHARS);

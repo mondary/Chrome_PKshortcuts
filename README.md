@@ -9,7 +9,7 @@
 
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.11.2** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.3** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -21,7 +21,7 @@
 - Libellés de commandes groupés avec emojis dans `chrome://extensions/shortcuts`.
 - 🧹 URL Cleaner: nettoie les URLs du tracking (utm, fbclid, gclid, etc.) avec modes strict/balanced/light/custom.
 - ♻️ Tab Deduplicator: détecte et ferme les onglets en double.
-- 🌐 Traduction inline: traduit la sélection à la volée (Google + MyMemory).
+- 🌐 Traduction inline: traduit la sélection à la volée (Google + MyMemory), avec détection automatique de la langue source — aucune traduction si le texte est déjà dans la langue cible.
 - 📑 Auto-collapse: referme automatiquement les groupes d'onglets quand on les quitte.
 - 💾 Sauvegarde: import/export/reset de la configuration.
 

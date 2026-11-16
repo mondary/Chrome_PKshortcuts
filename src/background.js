@@ -1064,7 +1064,7 @@ async function triggerTranslateSelection() {
       return;
     }
     const result = await Translator.translate(text, config.translate_target_lang, config.translate_api);
-    sendTranslationResult(activeTab.id, { ok: true, result });
+    sendTranslationResult(activeTab.id, { ok: true, result, manual: true });
   } catch (err) {
     console.error("[PK Shortcuts] TRIGGER_TRANSLATE failed:", err);
     await flashBadge("ERR", "#B71C1C");

@@ -48,7 +48,12 @@ chrome.runtime.onMessage.addListener((message) => {
     if (message.error === "disabled") {
       hideTranslatePopup();
     } else if (message.ok && message.result) {
-      showTranslatePopup(message.result);
+      if (message.result.sameLanguage) {
+        if (message.manual) showTranslatePopup(message.result);
+        else hideTranslatePopup();
+      } else {
+        showTranslatePopup(message.result);
+      }
     } else if (message.error) {
       showTranslatePopup({ error: message.error });
     }
@@ -185,6 +190,14 @@ function showTranslatePopup(result) {
     textEl.textContent = `Erreur : ${result.error}`;
     langEl.textContent = "Erreur";
     sourceEl.textContent = "";
+    truncatedEl.hidden = true;
+  } else if (result.sameLanguage) {
+    const detected = (result.detected || "?").toUpperCase();
+    const target = Translator_resolveTarget(featureFlags.translate_target_lang).toUpperCase();
+    textEl.className = "pk-text";
+    textEl.textContent = `Déjà en ${detected} — rien à traduire.`;
+    langEl.textContent = `${detected} = ${target}`;
+    sourceEl.textContent = "détection auto";
     truncatedEl.hidden = true;
   } else {
     textEl.className = "pk-text";
