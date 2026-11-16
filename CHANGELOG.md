@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.1`
+Statut : `2026.11.2`
 
 ---
 
 ## Releases
+
+### [2026.11.2] - 2026-11-16
+
+#### Changed
+- page options : surbrillance de navigation neutre (fond gris, texte clair) à la place du jaune ambre, entrée « Raccourcis » en bouton contouré discret
 
 ### [2026.11.1] - 2026-11-16
 

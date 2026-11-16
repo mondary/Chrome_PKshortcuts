@@ -204,9 +204,9 @@ code {
 }
 
 .nav-item.active {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  border-color: transparent;
 }
 
 .nav-emoji {
@@ -216,15 +216,16 @@ code {
 
 /* Action directe (n'est pas une page) : ouvre l'éditeur Chrome */
 .nav-action {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent);
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
   margin-bottom: 10px;
 }
 
 .nav-action:hover {
-  background: var(--accent);
-  color: #1a1102;
+  background: var(--bg-elev-2);
+  border-color: var(--text-mute);
+  color: var(--text);
 }
 
 .nav-external {
