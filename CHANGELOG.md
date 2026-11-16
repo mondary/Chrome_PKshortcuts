@@ -6,13 +6,13 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.10.4`
+Statut : `2026.11.1`
 
 ---
 
 ## Releases
 
-### [2026.10.4] - 2026-11-16
+### [2026.11.1] - 2026-11-16
 
 #### Changed
 - page options : À propos en première position et affiché à l'ouverture, avec version, éditeur de raccourcis Chrome, GitHub et soutien accessibles immédiatement
