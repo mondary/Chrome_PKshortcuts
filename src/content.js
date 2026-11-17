@@ -41,6 +41,7 @@ document.addEventListener("click", onSplitGesture, true);
 window.addEventListener("keydown", onNavigationHotkeys, true);
 document.addEventListener("keydown", onDuplicateTabHotkey, true);
 document.addEventListener("keydown", onTabReorderHotkey, true);
+document.addEventListener("keydown", onDetachTabHotkey, true);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
@@ -326,6 +327,18 @@ function onTabReorderHotkey(event) {
   event.preventDefault();
   event.stopImmediatePropagation();
   chrome.runtime.sendMessage({ type });
+}
+
+function onDetachTabHotkey(event) {
+  if (!featureFlags.feature_tab_nav_hotkeys) return;
+  if (event.defaultPrevented) return;
+  if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+  if (String(event.key).toLowerCase() !== "u") return;
+  if (isEditableTarget(event.target)) return;
+
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  chrome.runtime.sendMessage({ type: "DETACH_CURRENT_TAB" });
 }
 
 function onNavigationHotkeys(event) {

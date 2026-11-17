@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.12`
+Statut : `2026.11.13`
 
 ---
 
 ## Releases
+
+### [2026.11.13] - 2026-11-17
+
+#### Fixed
+- `Cmd+U` détache l'onglet via interception capture, indépendamment des commandes Chrome : la copie dev perd ses commandes personnalisées au reload
 
 ### [2026.11.12] - 2026-11-17
 
