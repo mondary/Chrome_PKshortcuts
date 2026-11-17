@@ -39,7 +39,7 @@ async function loadFeatureFlags() {
 document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
 window.addEventListener("keydown", onNavigationHotkeys, true);
-window.addEventListener("keydown", onDuplicateTabHotkey);
+document.addEventListener("keydown", onDuplicateTabHotkey, true);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
@@ -307,7 +307,7 @@ function onDuplicateTabHotkey(event) {
   if (String(event.key).toLowerCase() !== "d") return;
 
   event.preventDefault();
-  event.stopPropagation();
+  event.stopImmediatePropagation();
   chrome.runtime.sendMessage({ type: "DUPLICATE_CURRENT_TAB" });
 }
 

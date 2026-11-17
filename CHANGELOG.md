@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.8`
+Statut : `2026.11.9`
 
 ---
 
 ## Releases
+
+### [2026.11.9] - 2026-11-17
+
+#### Fixed
+- `Cmd+D` : interception en phase capture sur `document` avec `stopImmediatePropagation`, la phase bubble laissait Chrome ouvrir le favori natif
 
 ### [2026.11.8] - 2026-11-17
 
