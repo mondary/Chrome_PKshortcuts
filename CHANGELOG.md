@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.6`
+Statut : `2026.11.7`
 
 ---
 
 ## Releases
+
+### [2026.11.7] - 2026-11-17
+
+#### Fixed
+- dev : suppression de la clé Store du manifeste pour que Chrome ne remplace plus la version locale par la version publiée lors d'une mise à jour ; l'ID non empaqueté redevient stable par chemin, distinct de l'ID CWS
 
 ### [2026.11.6] - 2026-11-17
 
