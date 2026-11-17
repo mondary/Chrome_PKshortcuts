@@ -15,9 +15,9 @@ const DEFAULTS = {
   ],
   url_cleaner_custom_params: "",
   options_theme: "dark",
-  feature_translate: true,
+  feature_translate: false,
   translate_target_lang: "auto",
-  translate_trigger: "auto",
+  translate_trigger: "manual",
   translate_api: "google_mymemory",
   feature_auto_collapse_groups: true
 };

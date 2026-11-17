@@ -1028,9 +1028,9 @@ async function notifyDedupResult(groupCount, closedCount) {
 
 async function getTranslateConfig() {
   return await chrome.storage.sync.get({
-    feature_translate: true,
+    feature_translate: false,
     translate_target_lang: "auto",
-    translate_trigger: "auto",
+    translate_trigger: "manual",
     translate_api: "google_mymemory"
   });
 }

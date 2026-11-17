@@ -22,7 +22,7 @@
 - Libellés de commandes groupés avec emojis dans `chrome://extensions/shortcuts`.
 - 🧹 URL Cleaner: nettoie les URLs du tracking (utm, fbclid, gclid, etc.) avec modes strict/balanced/light/custom.
 - ♻️ Tab Deduplicator: détecte et ferme les onglets en double.
-- 🌐 Traduction inline: traduit la sélection à la volée (Google + MyMemory), avec détection automatique de la langue source — aucune traduction si le texte est déjà dans la langue cible.
+- 🌐 Traduction inline (désactivée par défaut, activation sélective) : traduit la sélection à la volée (Google + MyMemory), avec détection automatique de la langue source — aucune traduction si le texte est déjà dans la langue cible.
 - 📑 Auto-collapse: referme automatiquement les groupes d'onglets quand on les quitte.
 - 💾 Sauvegarde: import/export/reset de la configuration.
 

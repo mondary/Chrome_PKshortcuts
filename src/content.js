@@ -10,8 +10,8 @@ let featureFlags = {
   feature_split_gesture: true,
   feature_tab_nav_hotkeys: true,
   feature_cmd_d_duplicate: true,
-  feature_translate: true,
-  translate_trigger: "auto",
+  feature_translate: false,
+  translate_trigger: "manual",
   translate_target_lang: "auto"
 };
 const COPY_COOLDOWN = 2000; // ms avant de pouvoir copier à nouveau
