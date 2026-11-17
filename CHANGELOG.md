@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.7`
+Statut : `2026.11.8`
 
 ---
 
 ## Releases
+
+### [2026.11.8] - 2026-11-17
+
+#### Added
+- `Cmd+D` duplique l'onglet actif sur les pages web via un intercepteur clavier (le raccourci natif Chrome « ajouter aux favoris » reprend la main sur `chrome://`), avec option dans Features
 
 ### [2026.11.7] - 2026-11-17
 

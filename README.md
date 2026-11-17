@@ -9,7 +9,7 @@
 
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.11.7** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.8** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -17,6 +17,7 @@
 - Détacher l'onglet actif dans une nouvelle fenêtre.
 - Navigation d'onglets: précédent/suivant, premier/dernier, dernier onglet actif.
 - Actions onglet: move, pin/unpin, mute/unmute, reload/hard reload, duplicate, unload.
+- `⌘D` duplique l'onglet actif sur les pages web (remplace le favori natif Chrome, désactivable dans Features).
 - Ouverture rapide des pages Chrome (`chrome://bookmarks`, `history`, `flags`, etc.).
 - Libellés de commandes groupés avec emojis dans `chrome://extensions/shortcuts`.
 - 🧹 URL Cleaner: nettoie les URLs du tracking (utm, fbclid, gclid, etc.) avec modes strict/balanced/light/custom.

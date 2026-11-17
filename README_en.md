@@ -9,7 +9,7 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.11.7** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.8** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -17,6 +17,7 @@
 - Detach current tab into a new window.
 - Tab navigation: previous/next, first/last, last active tab.
 - Tab actions: move, pin/unpin, mute/unmute, reload/hard reload, duplicate, unload.
+- `⌘D` duplicates the current tab on web pages (overrides Chrome's native bookmark, toggleable in Features).
 - Quick open Chrome pages (`chrome://bookmarks`, `history`, `flags`, etc.).
 - Grouped command labels with emojis in `chrome://extensions/shortcuts`.
 - 🧹 URL Cleaner: strips tracking params (utm, fbclid, gclid, etc.) with strict/balanced/light/custom modes.

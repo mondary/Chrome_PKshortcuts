@@ -9,6 +9,7 @@ let featureFlags = {
   autoCopyEnabled: true,
   feature_split_gesture: true,
   feature_tab_nav_hotkeys: true,
+  feature_cmd_d_duplicate: true,
   feature_translate: true,
   translate_trigger: "auto",
   translate_target_lang: "auto"
@@ -38,6 +39,7 @@ async function loadFeatureFlags() {
 document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
 window.addEventListener("keydown", onNavigationHotkeys, true);
+window.addEventListener("keydown", onDuplicateTabHotkey);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
@@ -296,6 +298,17 @@ function onSplitGesture(event) {
     type: "OPEN_LINK_SPLIT",
     url
   });
+}
+
+function onDuplicateTabHotkey(event) {
+  if (!featureFlags.feature_cmd_d_duplicate) return;
+  if (event.defaultPrevented) return;
+  if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+  if (String(event.key).toLowerCase() !== "d") return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  chrome.runtime.sendMessage({ type: "DUPLICATE_CURRENT_TAB" });
 }
 
 function onNavigationHotkeys(event) {

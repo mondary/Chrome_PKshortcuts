@@ -86,6 +86,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return;
   }
 
+  if (message.type === "DUPLICATE_CURRENT_TAB") {
+    duplicateCurrentTab();
+    return;
+  }
+
   if (message.type === "SELECT_PREVIOUS_TAB") {
     selectAdjacentTab(-1);
     return;
