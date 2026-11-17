@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.5`
+Statut : `2026.11.6`
 
 ---
 
 ## Releases
+
+### [2026.11.6] - 2026-11-17
+
+#### Changed
+- raccourci traduction : aucune suggestion par défaut ; `Cmd+Shift+T` reste attribué au natif Chrome pour rouvrir l'onglet fermé
 
 ### [2026.11.5] - 2026-11-17
 
