@@ -7,6 +7,30 @@ const windowHistory = new Map();
 const BADGE_BG_COLOR = "#0B0B0B";
 let badgeRefreshTimer = null;
 const windowGroupHistory = new Map();
+const DEV_AUTO_RELOAD_MS = 2000;
+
+// Uniquement pour la copie non empaquetée : Chrome ne recharge pas les
+// extensions locales tout seul. On surveille le manifeste sur disque et on
+// recharge l'extension dès que sa version change.
+function setupDevAutoReload() {
+  const manifest = chrome.runtime.getManifest();
+  if (manifest.update_url) return;
+
+  let currentVersion = manifest.version;
+  setInterval(async () => {
+    try {
+      const url = `${chrome.runtime.getURL("manifest.json")}?t=${Date.now()}`;
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) return;
+      const next = await response.json();
+      if (next.version && next.version !== currentVersion) {
+        chrome.runtime.reload();
+      }
+    } catch {}
+  }, DEV_AUTO_RELOAD_MS);
+}
+
+setupDevAutoReload();
 
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();

@@ -9,7 +9,7 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.11.11** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.12** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -29,6 +29,7 @@
 ## 🧠 Usage
 - Load the `src/` folder in `chrome://extensions` (`Load unpacked`).
 - The unpacked extension uses a stable path-derived ID, separate from the Store ID: a Chrome Web Store update cannot overwrite the local build.
+- In development, the unpacked copy reloads itself as soon as the manifest version changes; Store installs are unaffected.
 - Open `chrome://extensions/shortcuts` to view/edit shortcuts.
 - The gesture shortcut `Cmd + Option + Click` works directly on links.
 - Click the extension icon to open the options page.

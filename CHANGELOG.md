@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.11`
+Statut : `2026.11.12`
 
 ---
 
 ## Releases
+
+### [2026.11.12] - 2026-11-17
+
+#### Added
+- auto-reload dev : la copie non empaquetée surveille la version du manifeste et se recharge seule ; les versions Store ne sont pas concernées
 
 ### [2026.11.11] - 2026-11-17
 
