@@ -213,6 +213,6 @@
     "message": "♻️ Auto-close duplicate tabs (keep active or oldest) · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+K"
   },
   "cmd_translate_selection_desc": {
-    "message": "🌐 Translate current selection · Chrome: Not set · 🎯 Suggestion: Cmd+Shift+T"
+    "message": "🌐 Translate current selection · Chrome: Cmd+Shift+T · 🎯 Suggestion: Cmd+Shift+Y"
   }
 }

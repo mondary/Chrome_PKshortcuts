@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.4`
+Statut : `2026.11.5`
 
 ---
 
 ## Releases
+
+### [2026.11.5] - 2026-11-17
+
+#### Fixed
+- raccourci traduction : suggestion passée à `Cmd+Shift+Y`, `Cmd+Shift+T` étant réservé par Chrome pour rouvrir l'onglet fermé ; `suggested_key` ajouté pour `c19-translate-selection`
 
 ### [2026.11.4] - 2026-11-16
 

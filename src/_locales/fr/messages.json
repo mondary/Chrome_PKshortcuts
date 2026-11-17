@@ -213,6 +213,6 @@
     "message": "♻️ Fermer automatiquement les onglets en doublon (garde l'actif ou le plus ancien) · Chrome: Non defini · 🎯 Suggestion: Cmd+Shift+K"
   },
   "cmd_translate_selection_desc": {
-    "message": "🌐 Traduire la selection courante · Chrome: Non defini · 🎯 Suggestion: Cmd+Shift+T"
+    "message": "🌐 Traduire la selection courante · Chrome: Cmd+Shift+T · 🎯 Suggestion: Cmd+Shift+Y"
   }
 }
