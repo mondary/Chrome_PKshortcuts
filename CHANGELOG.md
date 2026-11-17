@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.9`
+Statut : `2026.11.10`
 
 ---
 
 ## Releases
+
+### [2026.11.10] - 2026-11-17
+
+#### Fixed
+- `Cmd+←/→` déplace l'onglet actif via interception capture, hors champs de saisie ; Chrome réservait ces combinaisons pour précédent/suivant
 
 ### [2026.11.9] - 2026-11-17
 

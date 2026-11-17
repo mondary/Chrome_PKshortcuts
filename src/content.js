@@ -40,6 +40,7 @@ document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
 window.addEventListener("keydown", onNavigationHotkeys, true);
 document.addEventListener("keydown", onDuplicateTabHotkey, true);
+document.addEventListener("keydown", onTabReorderHotkey, true);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
@@ -309,6 +310,22 @@ function onDuplicateTabHotkey(event) {
   event.preventDefault();
   event.stopImmediatePropagation();
   chrome.runtime.sendMessage({ type: "DUPLICATE_CURRENT_TAB" });
+}
+
+function onTabReorderHotkey(event) {
+  if (!featureFlags.feature_tab_nav_hotkeys) return;
+  if (event.defaultPrevented) return;
+  if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+  if (isEditableTarget(event.target)) return;
+
+  let type = "";
+  if (event.key === "ArrowLeft") type = "MOVE_TAB_LEFT";
+  else if (event.key === "ArrowRight") type = "MOVE_TAB_RIGHT";
+  else return;
+
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  chrome.runtime.sendMessage({ type });
 }
 
 function onNavigationHotkeys(event) {

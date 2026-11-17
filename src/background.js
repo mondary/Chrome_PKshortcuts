@@ -91,6 +91,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return;
   }
 
+  if (message.type === "MOVE_TAB_LEFT") {
+    moveCurrentTabBy(-1);
+    return;
+  }
+
+  if (message.type === "MOVE_TAB_RIGHT") {
+    moveCurrentTabBy(1);
+    return;
+  }
+
   if (message.type === "SELECT_PREVIOUS_TAB") {
     selectAdjacentTab(-1);
     return;
