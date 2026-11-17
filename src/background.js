@@ -135,6 +135,46 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return;
   }
 
+  if (message.type === "TOGGLE_PIN_TAB") {
+    togglePinActiveTab();
+    return;
+  }
+
+  if (message.type === "TOGGLE_AUTOCOPY") {
+    toggleAutoCopy();
+    return;
+  }
+
+  if (message.type === "COPY_CLEANED_URL") {
+    copyCleanedActiveTabUrl();
+    return;
+  }
+
+  if (message.type === "DEDUP_TABS") {
+    dedupTabsAuto();
+    return;
+  }
+
+  if (message.type === "GO_BACK") {
+    goBackCurrentTab();
+    return;
+  }
+
+  if (message.type === "GO_FORWARD") {
+    goForwardCurrentTab();
+    return;
+  }
+
+  if (message.type === "OPEN_CHROME_PAGE") {
+    const pages = {
+      bookmarks: "chrome://bookmarks/",
+      downloads: "chrome://downloads/",
+      history: "chrome://history/"
+    };
+    if (pages[message.page]) openChromeUrl(pages[message.page]);
+    return;
+  }
+
   if (message.type === "OPTIONS_UPDATED") {
     scheduleBadgeRefresh();
     return;

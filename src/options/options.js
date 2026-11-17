@@ -5,6 +5,7 @@ const DEFAULTS = {
   feature_split_gesture: true,
   feature_tab_nav_hotkeys: true,
   feature_cmd_d_duplicate: true,
+  feature_direct_shortcuts: true,
   feature_badge_tab_count: true,
   feature_url_cleaner: true,
   url_cleaner_mode: "balanced",

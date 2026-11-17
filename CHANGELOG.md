@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.14`
+Statut : `2026.11.15`
 
 ---
 
 ## Releases
+
+### [2026.11.15] - 2026-11-17
+
+#### Added
+- raccourcis directs dans les pages, indépendants de `chrome.commands` : `Cmd+U`, `Cmd+←/→`, `Option+←/→`, `Option+F/D/H/P`, `Cmd+Shift+C/U/K`
 
 ### [2026.11.14] - 2026-11-17
 

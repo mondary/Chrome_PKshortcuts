@@ -10,6 +10,7 @@ let featureFlags = {
   feature_split_gesture: true,
   feature_tab_nav_hotkeys: true,
   feature_cmd_d_duplicate: true,
+  feature_direct_shortcuts: true,
   feature_translate: false,
   translate_trigger: "manual",
   translate_target_lang: "auto"
@@ -42,6 +43,7 @@ window.addEventListener("keydown", onNavigationHotkeys, true);
 document.addEventListener("keydown", onDuplicateTabHotkey, true);
 document.addEventListener("keydown", onTabReorderHotkey, true);
 document.addEventListener("keydown", onDetachTabHotkey, true);
+document.addEventListener("keydown", onDirectShortcutHotkey, true);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
@@ -339,6 +341,36 @@ function onDetachTabHotkey(event) {
   event.preventDefault();
   event.stopImmediatePropagation();
   chrome.runtime.sendMessage({ type: "DETACH_CURRENT_TAB" });
+}
+
+function onDirectShortcutHotkey(event) {
+  if (!featureFlags.feature_direct_shortcuts) return;
+  if (event.defaultPrevented) return;
+  if (isEditableTarget(event.target)) return;
+
+  const meta = event.metaKey;
+  const alt = event.altKey;
+  const ctrl = event.ctrlKey;
+  const shift = event.shiftKey;
+  let payload = null;
+
+  if (alt && !meta && !ctrl && !shift) {
+    if (event.code === "KeyF") payload = { type: "OPEN_CHROME_PAGE", page: "bookmarks" };
+    else if (event.code === "KeyD") payload = { type: "OPEN_CHROME_PAGE", page: "downloads" };
+    else if (event.code === "KeyH") payload = { type: "OPEN_CHROME_PAGE", page: "history" };
+    else if (event.code === "KeyP") payload = { type: "TOGGLE_PIN_TAB" };
+    else if (event.key === "ArrowLeft") payload = { type: "GO_BACK" };
+    else if (event.key === "ArrowRight") payload = { type: "GO_FORWARD" };
+  } else if (meta && !alt && !ctrl && shift) {
+    if (event.code === "KeyC") payload = { type: "TOGGLE_AUTOCOPY" };
+    else if (event.code === "KeyU") payload = { type: "COPY_CLEANED_URL" };
+    else if (event.code === "KeyK") payload = { type: "DEDUP_TABS" };
+  }
+
+  if (!payload) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  chrome.runtime.sendMessage(payload);
 }
 
 function onNavigationHotkeys(event) {
