@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.13`
+Statut : `2026.11.14`
 
 ---
 
 ## Releases
+
+### [2026.11.14] - 2026-11-17
+
+#### Changed
+- dev : clé publique Chrome Web Store réintégrée dans le manifeste ; la copie non empaquetée partage l'ID et les raccourcis de la version Store, plus de réinitialisation au reload
 
 ### [2026.11.13] - 2026-11-17
 

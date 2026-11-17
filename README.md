@@ -9,7 +9,7 @@
 
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.11.13** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.14** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -28,7 +28,7 @@
 
 ## 🧠 Utilisation
 - Charge le dossier `src/` dans `chrome://extensions` (`Load unpacked`).
-- L'extension non empaquetée utilise un ID stable dérivé du chemin, distinct de l'ID Store : une mise à jour depuis le Chrome Web Store ne peut pas écraser la version locale.
+- L'extension non empaquetée utilise la clé publique du Chrome Web Store : elle partage l'ID et les raccourcis de la version publiée. Charger `src/` remplace la copie Store ; les raccourcis restent.
 - En développement, la copie non empaquetée se recharge automatiquement dès que la version du manifeste change ; les versions Store ne sont pas concernées.
 - Ouvre `chrome://extensions/shortcuts` pour voir/modifier les raccourcis.
 - Le raccourci gestuel `Cmd + Option + clic` fonctionne directement sur les liens.
