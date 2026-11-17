@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.10`
+Statut : `2026.11.11`
 
 ---
 
 ## Releases
+
+### [2026.11.11] - 2026-11-17
+
+#### Changed
+- traduction désactivée par défaut et déclencheur manuel par défaut ; activation sélective dans Options
 
 ### [2026.11.10] - 2026-11-17
 
