@@ -6,11 +6,20 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.15`
+Statut : `2026.11.16`
 
 ---
 
 ## Releases
+
+### [2026.11.16] - 2026-11-22
+
+#### Fixed
+- auto-reload dev via `chrome.alarms` : le `setInterval` mourait avec le service worker MV3, la copie locale tournait sur du code périmé (v2026.11.12 au lieu de 2026.11.15) — d'où des raccourcis « un sur deux ». L'alarme réveille le SW et compare le manifeste sur disque à chaque réveil.
+
+#### Changed
+- déplacement d'onglet remappé `Alt+Shift+←/→` : `Cmd+←/→` est réservé par Chrome sur macOS (page précédente/suivante), aucune technique d'extension ne peut le capter. Le repli « direct dans les pages » reste en place pour les plateformes où la combinaison est libre.
+- `secrets/sync-shortcuts.sh` : normalise les bindings `chrome://extensions/shortcuts` (Chrome fermé) — supprime le `Cmd+Shift+T` réservé et les entrées de l'ancien ID dev `kncdd…`.
 
 ### [2026.11.15] - 2026-11-17
 

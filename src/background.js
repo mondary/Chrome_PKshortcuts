@@ -7,27 +7,39 @@ const windowHistory = new Map();
 const BADGE_BG_COLOR = "#0B0B0B";
 let badgeRefreshTimer = null;
 const windowGroupHistory = new Map();
-const DEV_AUTO_RELOAD_MS = 2000;
+const DEV_RELOAD_ALARM = "dev-auto-reload";
+const DEV_RELOAD_CHECK_DELAY_MS = 3000;
 
 // Uniquement pour la copie non empaquetée : Chrome ne recharge pas les
-// extensions locales tout seul. On surveille le manifeste sur disque et on
-// recharge l'extension dès que sa version change.
+// extensions locales tout seul, et un setInterval meurt avec le service
+// worker (la copie locale tournait alors sur du code périmé). On programme
+// une alarme — elle réveille le SW — et on compare le manifeste sur disque
+// à chaque réveil.
 function setupDevAutoReload() {
   const manifest = chrome.runtime.getManifest();
   if (manifest.update_url) return;
+  if (!chrome.alarms?.create) return;
 
-  let currentVersion = manifest.version;
-  setInterval(async () => {
-    try {
-      const url = `${chrome.runtime.getURL("manifest.json")}?t=${Date.now()}`;
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) return;
-      const next = await response.json();
-      if (next.version && next.version !== currentVersion) {
-        chrome.runtime.reload();
-      }
-    } catch {}
-  }, DEV_AUTO_RELOAD_MS);
+  chrome.alarms.create(DEV_RELOAD_ALARM, { periodInMinutes: 1 });
+  chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === DEV_RELOAD_ALARM) void checkDevManifestVersion();
+  });
+
+  void checkDevManifestVersion();
+  setTimeout(() => void checkDevManifestVersion(), DEV_RELOAD_CHECK_DELAY_MS);
+}
+
+async function checkDevManifestVersion() {
+  try {
+    const currentVersion = chrome.runtime.getManifest().version;
+    const url = `${chrome.runtime.getURL("manifest.json")}?t=${Date.now()}`;
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) return;
+    const next = await response.json();
+    if (next.version && next.version !== currentVersion) {
+      chrome.runtime.reload();
+    }
+  } catch {}
 }
 
 setupDevAutoReload();
