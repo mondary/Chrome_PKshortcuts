@@ -6,11 +6,17 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.19`
+Statut : `2026.11.20`
 
 ---
 
 ## Releases
+
+### [2026.11.20] - 2026-11-23
+
+#### Added
+- fiche Chrome Web Store : cinq captures 1280×800 (hero, nettoyage d'URL, nettoyage personnalisé, réglages sombres, sauvegarde), icône 128×128, tuile 440×280 et marquee 1400×560 dans `store/cws/`, indexées par `store/cws/manifest.json` avec leurs sources
+- source du hero conservée dans `store/media-kit/cws-2026/options-light.png`
 
 ### [2026.11.19] - 2026-11-23
 

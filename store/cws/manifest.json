@@ -1,0 +1,23 @@
+{
+  "app": "PK Chrome Shortcuts",
+  "live": "https://chromewebstore.google.com/detail/pk-chrome-shortcuts/cjgecoangnnoihcdplnoanbmajpanned",
+  "icon": "icon-128.png",
+  "small_promo_tile": "tile-440x280.png",
+  "marquee": "marquee-1400x560.png",
+  "screenshots": [
+    "01-hero-1280x800.png",
+    "02-pk-chrome-shortcuts-nettoyage-d-url.png",
+    "03-pk-chrome-shortcuts-nettoyage-personnalis.png",
+    "04-pk-chrome-shortcuts-r-glages-sombres.png",
+    "05-pk-chrome-shortcuts-sauvegarde.png"
+  ],
+  "sources": {
+    "hero": "store/media-kit/cws-2026/options-light.png",
+    "screens": [
+      "store/website/screenshots/03-url-cleaner.png",
+      "store/website/screenshots/04-custom-cleaner.png",
+      "store/website/screenshots/01-features-dark.png",
+      "store/website/screenshots/08-backup.png"
+    ]
+  }
+}

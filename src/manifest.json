@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "PK-Labs Keys",
-  "version": "2026.11.19",
-  "version_name": "2026.11.19",
+  "version": "2026.11.20",
+  "version_name": "2026.11.20",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwYscVN+PLU/5890QWoNx4W57te9WcjMKuRkWy/a6nB0A32RY/TgmojJKUpC2SZnyFCERzUIR0myLtTunFddoFOuJZJOhgzcQVkoRBukjg/7i5SqbilT4+lrtiMzJWkkKHgFhnJvh0dpAc6OkmzEPQUU/Bi1d9Kgn65jcXofGjZNvhjyXuM9j//yyc1alYws6iPQgJrN9MWJyVfwaKLse5tUVUQMNQCIM/MHsjhr9FrEwAeKw1LMCcPXRZsmxpAPijFwM+cj2MXvk28bKD5akVHqe0SnpZBZ+kG9MM1hQN0Z95e50zBUylgmwE3LFYOJ6vdYKqCPKYmSlJzW/W3qbZQIDAQAB",
   "description": "__MSG_extDescription__",
   "icons": {
@@ -280,6 +280,7 @@
       "js": [
         "content.js"
       ],
+      "all_frames": true,
       "run_at": "document_start"
     }
   ],
