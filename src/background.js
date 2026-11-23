@@ -1137,21 +1137,29 @@ async function triggerTranslateSelection() {
   try {
     const config = await getTranslateConfig();
     if (!config.feature_translate) {
-      await flashBadge("OFF", "#B71C1C");
+      await restoreLastClosedTab();
       return;
     }
     const [activeTab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-    if (!activeTab?.id) return;
-    const [selectionResult] = await chrome.scripting.executeScript({
-      target: { tabId: activeTab.id },
-      func: () => {
-        const sel = window.getSelection();
-        return sel ? sel.toString().trim() : "";
-      }
-    });
-    const text = selectionResult?.result;
+    if (!activeTab?.id) {
+      await restoreLastClosedTab();
+      return;
+    }
+    let text = "";
+    try {
+      const [selectionResult] = await chrome.scripting.executeScript({
+        target: { tabId: activeTab.id },
+        func: () => {
+          const sel = window.getSelection();
+          return sel ? sel.toString().trim() : "";
+        }
+      });
+      text = selectionResult?.result || "";
+    } catch {
+      // Pages chrome:// et images : pas de sélection lisible.
+    }
     if (!text) {
-      await flashBadge("0", "#9E9E9E");
+      await restoreLastClosedTab();
       return;
     }
     const result = await Translator.translate(text, config.translate_target_lang, config.translate_api);
@@ -1160,6 +1168,17 @@ async function triggerTranslateSelection() {
     console.error("[PK Shortcuts] TRIGGER_TRANSLATE failed:", err);
     await flashBadge("ERR", "#B71C1C");
   }
+}
+
+// Raccourci de traduction sans sélection, ou traduction désactivée : rendre
+// la main au geste natif attendu sur ce raccourci (rouvrir l'onglet fermé),
+// même quand un ancien binding chrome://extensions/shortcuts l'a volé à Chrome.
+async function restoreLastClosedTab() {
+  try {
+    if (typeof chrome.sessions?.restore === "function") {
+      await chrome.sessions.restore();
+    }
+  } catch {}
 }
 
 async function handleAutoCollapseGroups(tabId, windowId) {

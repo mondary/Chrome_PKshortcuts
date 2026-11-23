@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.16`
+Statut : `2026.11.17`
 
 ---
 
 ## Releases
+
+### [2026.11.17] - 2026-11-23
+
+#### Fixed
+- `Cmd+Shift+T` : un ancien binding `c19-translate-selection` volait le geste natif « rouvrir l'onglet fermé ». Sans traduction active ou sans sélection, la commande rouvre maintenant l'onglet fermé via `chrome.sessions.restore()` au lieu d'afficher un badge « OFF » et de ne rien faire. Permission `sessions` ajoutée.
 
 ### [2026.11.16] - 2026-11-22
 
