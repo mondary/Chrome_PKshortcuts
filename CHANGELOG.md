@@ -6,11 +6,16 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.18`
+Statut : `2026.11.19`
 
 ---
 
 ## Releases
+
+### [2026.11.19] - 2026-11-23
+
+#### Added
+- `Option+Shift+←/→` déplace l'onglet actif aussi en interception de page : la liste complète des raccourcis survit désormais aux réinstallations d'extension, indépendamment des bindings `chrome.commands` que Chrome efface à chaque réinstallation.
 
 ### [2026.11.18] - 2026-11-23
 

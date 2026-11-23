@@ -361,6 +361,11 @@ function onDirectShortcutHotkey(event) {
     else if (event.code === "KeyP") payload = { type: "TOGGLE_PIN_TAB" };
     else if (event.key === "ArrowLeft") payload = { type: "GO_BACK" };
     else if (event.key === "ArrowRight") payload = { type: "GO_FORWARD" };
+  } else if (alt && !meta && !ctrl && shift) {
+    // Même combinaison que la commande globale : si le binding Chrome a été
+    // effacé par une réinstallation, la page reprend le geste.
+    if (event.key === "ArrowLeft") payload = { type: "MOVE_TAB_LEFT" };
+    else if (event.key === "ArrowRight") payload = { type: "MOVE_TAB_RIGHT" };
   } else if (meta && !alt && !ctrl && shift) {
     if (event.code === "KeyC") payload = { type: "TOGGLE_AUTOCOPY" };
     else if (event.code === "KeyU") payload = { type: "COPY_CLEANED_URL" };
