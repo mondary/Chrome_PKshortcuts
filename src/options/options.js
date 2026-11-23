@@ -110,6 +110,49 @@ function bindAbout() {
     const btn = $(id);
     if (btn) btn.addEventListener("click", openShortcutsEditor);
   });
+  const diagBtn = $("diag-run");
+  if (diagBtn) diagBtn.addEventListener("click", runShortcutDiagnostics);
+}
+
+async function runShortcutDiagnostics() {
+  const out = $("diag-summary");
+  const setText = (text) => {
+    if (out) out.textContent = text;
+  };
+  setText("Test en cours…");
+
+  const manifest = chrome.runtime.getManifest();
+  let bound = 0;
+  let total = 0;
+  try {
+    const commands = await chrome.commands.getAll();
+    total = commands.length;
+    bound = commands.filter((command) => command.shortcut).length;
+  } catch {}
+
+  let pageLayer = "aucun onglet web";
+  try {
+    const tabs = await chrome.tabs.query({});
+    const webTabs = tabs.filter((tab) => /^https?:\/\//.test(tab.url || "") && tab.id != null);
+    const target = webTabs.find((tab) => tab.active) || webTabs[0];
+    if (target) {
+      const response = await Promise.race([
+        chrome.tabs.sendMessage(target.id, { type: "PING_DIAG" }),
+        new Promise((resolve) => setTimeout(() => resolve(null), 900))
+      ]);
+      pageLayer = response && response.ok ? "active" : "absente";
+    }
+  } catch {
+    pageLayer = "absente";
+  }
+
+  const summary = `v${manifest.version} · bindings Chrome ${bound}/${total} · couche de page ${pageLayer}`;
+  setText(summary);
+  try {
+    await chrome.storage.local.set({
+      pk_diag_options: { at: Date.now(), version: manifest.version, bound, total, pageLayer }
+    });
+  } catch {}
 }
 
 // ============================================================

@@ -5,6 +5,16 @@ let lastCopiedText = "";
 let lastCopyTime = 0;
 let translateTimer = null;
 let translatePopupController = null;
+
+// Marqueurs de diagnostic relisibles depuis le disque de Chrome.
+// Aucun effet fonctionnel : uniquement en try/catch, sans blocage.
+function diag(entry) {
+  try {
+    chrome.storage.local.set({ pk_diag_last: { at: Date.now(), ...entry } });
+  } catch {}
+}
+diag({ kind: "inject", top: window === window.top, url: location.href });
+
 let featureFlags = {
   autoCopyEnabled: true,
   feature_split_gesture: true,
@@ -39,16 +49,23 @@ async function loadFeatureFlags() {
 
 document.addEventListener("mousedown", onSplitGesture, true);
 document.addEventListener("click", onSplitGesture, true);
+// Capture sur window (le point le plus haut) : nos gestes passent même si la
+// page ou une autre extension a déjà appelé preventDefault().
 window.addEventListener("keydown", onNavigationHotkeys, true);
-document.addEventListener("keydown", onDuplicateTabHotkey, true);
-document.addEventListener("keydown", onTabReorderHotkey, true);
-document.addEventListener("keydown", onDetachTabHotkey, true);
-document.addEventListener("keydown", onDirectShortcutHotkey, true);
+window.addEventListener("keydown", onDuplicateTabHotkey, true);
+window.addEventListener("keydown", onTabReorderHotkey, true);
+window.addEventListener("keydown", onDetachTabHotkey, true);
+window.addEventListener("keydown", onDirectShortcutHotkey, true);
 
 document.addEventListener("selectionchange", onSelectionChange, true);
 
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (!message || !message.type) return;
+
+  if (message.type === "PING_DIAG") {
+    sendResponse({ ok: true, at: Date.now(), url: location.href });
+    return;
+  }
 
   if (message.type === "TRANSLATE_RESULT") {
     if (message.error === "disabled") {
@@ -306,18 +323,17 @@ function onSplitGesture(event) {
 
 function onDuplicateTabHotkey(event) {
   if (!featureFlags.feature_cmd_d_duplicate) return;
-  if (event.defaultPrevented) return;
   if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
   if (String(event.key).toLowerCase() !== "d") return;
 
   event.preventDefault();
   event.stopImmediatePropagation();
+  diag({ kind: "key", action: "duplicate" });
   chrome.runtime.sendMessage({ type: "DUPLICATE_CURRENT_TAB" });
 }
 
 function onTabReorderHotkey(event) {
   if (!featureFlags.feature_tab_nav_hotkeys) return;
-  if (event.defaultPrevented) return;
   if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
   if (isEditableTarget(event.target)) return;
 
@@ -328,24 +344,24 @@ function onTabReorderHotkey(event) {
 
   event.preventDefault();
   event.stopImmediatePropagation();
+  diag({ kind: "key", action: type });
   chrome.runtime.sendMessage({ type });
 }
 
 function onDetachTabHotkey(event) {
   if (!featureFlags.feature_tab_nav_hotkeys) return;
-  if (event.defaultPrevented) return;
   if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
   if (String(event.key).toLowerCase() !== "u") return;
   if (isEditableTarget(event.target)) return;
 
   event.preventDefault();
   event.stopImmediatePropagation();
+  diag({ kind: "key", action: "detach" });
   chrome.runtime.sendMessage({ type: "DETACH_CURRENT_TAB" });
 }
 
 function onDirectShortcutHotkey(event) {
   if (!featureFlags.feature_direct_shortcuts) return;
-  if (event.defaultPrevented) return;
   if (isEditableTarget(event.target)) return;
 
   const meta = event.metaKey;
@@ -375,15 +391,12 @@ function onDirectShortcutHotkey(event) {
   if (!payload) return;
   event.preventDefault();
   event.stopImmediatePropagation();
+  diag({ kind: "key", action: payload.type });
   chrome.runtime.sendMessage(payload);
 }
 
 function onNavigationHotkeys(event) {
   if (!featureFlags.feature_tab_nav_hotkeys) return;
-
-  if (event.defaultPrevented) {
-    return;
-  }
 
   if (isEditableTarget(event.target)) {
     return;

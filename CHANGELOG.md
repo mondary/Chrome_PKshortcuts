@@ -6,11 +6,20 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.20`
+Statut : `2026.11.21`
 
 ---
 
 ## Releases
+
+### [2026.11.21] - 2026-11-23
+
+#### Added
+- section « Raccourcis (config perso PK) » dans les READMEs FR/EN : carte complète des gestes personnels, contrainte macOS sur `Cmd+←/→` et procédure de restauration des bindings.
+- diagnostic embarqué dans la page options (À propos → Diagnostic des raccourcis) : version chargée, bindings `chrome.commands` actifs, réponse du content script sur un onglet web.
+
+#### Fixed
+- couche de page durcie : capture sur `window` au lieu de `document` et suppression des abandons sur `event.defaultPrevented` — une page ou une autre extension ne peut plus neutraliser les raccourcis.
 
 ### [2026.11.20] - 2026-11-23
 

@@ -71,6 +71,12 @@ async function readDiskManifestVersion() {
 
 setupDevAutoReload();
 
+try {
+  chrome.storage.local.set({
+    pk_diag_sw: { at: Date.now(), version: chrome.runtime.getManifest().version }
+  });
+} catch {}
+
 chrome.runtime.onInstalled.addListener(() => {
   logCommandShortcuts();
   scheduleBadgeRefresh();
@@ -137,6 +143,12 @@ if (actionApi?.onClicked) {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (!message || !message.type) {
     return;
+  }
+
+  if (message.type !== "TRANSLATE_RESULT" && message.type !== "PK_DIAG") {
+    try {
+      chrome.storage.local.set({ pk_diag_msg: { type: message.type, at: Date.now() } });
+    } catch {}
   }
 
   if (message.type === "OPEN_LINK_SPLIT" && typeof message.url === "string") {

@@ -9,7 +9,7 @@
 
 ✨ Chrome extension to control tabs, navigation, and split view with keyboard shortcuts.
 
-> Version **2026.11.20** — history: [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.21** — history: [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Features
 - Badge on extension icon: live counter of total open tabs.
@@ -27,6 +27,31 @@
 - 🌐 Inline translation (off by default, opt-in): translates selection on the fly (Google + MyMemory), with automatic source-language detection — skipped when the text is already in the target language.
 - 📑 Auto-collapse: automatically collapses tab groups when leaving them.
 - 💾 Backup: import/export/reset configuration.
+
+## ⌨️ Shortcuts (PK personal config)
+
+Two layers: **global** (`chrome.commands`, works everywhere, including `chrome://`) and **page** (in-page interception on web pages, survives extension reinstalls).
+
+| Shortcut | Action | Layer |
+|---|---|---|
+| `⌘D` | Duplicate current tab | global + page |
+| `⌘U` | Detach tab into a new window | global + page |
+| `⌥←` / `⌥→` | Page back / forward | global + page |
+| `⌥⇧←` / `⌥⇧→` | Move tab left / right | global + page |
+| `⌥F` | Bookmarks | global + page |
+| `⌥D` | Downloads | global + page |
+| `⌥H` | History | global + page |
+| `⌥P` | Pin / unpin tab | global + page |
+| `⌘⇧C` | Auto-copy on/off | global + page |
+| `⌘⇧U` | Copy cleaned URL | global + page |
+| `⌘⇧K` | Deduplicate tabs | global + page |
+| `⌘⌥←` / `⌘⌥→` | Previous / next tab | page |
+| `⌘⇧T` | Reopen closed tab | native Chrome |
+| `⌘⌥click` on a link | Split view side by side | page |
+
+> `⌘←` / `⌘→` cannot move tabs: Chrome macOS reserves them for page back/forward. Use `⌥⇧←` / `⌥⇧→`.
+>
+> After an extension reinstall, global bindings are restored by quitting Chrome and running `./secrets/sync-shortcuts.sh`.
 
 ## 🧠 Usage
 - Load the `src/` folder in `chrome://extensions` (`Load unpacked`).

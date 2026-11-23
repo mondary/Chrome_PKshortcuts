@@ -9,7 +9,7 @@
 
 ✨ Extension Chrome pour piloter les onglets, la navigation et le split view via raccourcis clavier. Made by PK-Labs.
 
-> Version **2026.11.20** — historique : [CHANGELOG.md](CHANGELOG.md)
+> Version **2026.11.21** — historique : [CHANGELOG.md](CHANGELOG.md)
 
 ## ✅ Fonctionnalités
 - Badge sur l'icône extension: compteur du nombre total d'onglets ouverts.
@@ -27,6 +27,31 @@
 - 🌐 Traduction inline (désactivée par défaut, activation sélective) : traduit la sélection à la volée (Google + MyMemory), avec détection automatique de la langue source — aucune traduction si le texte est déjà dans la langue cible.
 - 📑 Auto-collapse: referme automatiquement les groupes d'onglets quand on les quitte.
 - 💾 Sauvegarde: import/export/reset de la configuration.
+
+## ⌨️ Raccourcis (config perso PK)
+
+Deux couches : **globale** (`chrome.commands`, fonctionne partout, y compris sur `chrome://`) et **page** (interception dans les pages web, survit aux réinstallations d'extension).
+
+| Raccourci | Action | Couche |
+|---|---|---|
+| `⌘D` | Dupliquer l'onglet actif | globale + page |
+| `⌘U` | Détacher l'onglet dans une nouvelle fenêtre | globale + page |
+| `⌥←` / `⌥→` | Page précédente / suivante | globale + page |
+| `⌥⇧←` / `⌥⇧→` | Déplacer l'onglet à gauche / droite | globale + page |
+| `⌥F` | Favoris | globale + page |
+| `⌥D` | Téléchargements | globale + page |
+| `⌥H` | Historique | globale + page |
+| `⌥P` | Épingler / désépingler l'onglet | globale + page |
+| `⌘⇧C` | Auto-copy on/off | globale + page |
+| `⌘⇧U` | Copier l'URL nettoyée des trackers | globale + page |
+| `⌘⇧K` | Dédupliquer les onglets | globale + page |
+| `⌘⌥←` / `⌘⌥→` | Onglet précédent / suivant | page |
+| `⌘⇧T` | Rouvrir l'onglet fermé | natif Chrome |
+| `⌘⌥clic` sur un lien | Split view côte à côte | page |
+
+> `⌘←` / `⌘→` ne peuvent pas déplacer l'onglet : Chrome macOS les réserve à « page précédente/suivante ». Remplaçants : `⌥⇧←` / `⌥⇧→`.
+>
+> Après une réinstallation d'extension, les bindings globaux se restaurent en quittant Chrome puis `./secrets/sync-shortcuts.sh`.
 
 ## 🧠 Utilisation
 - Charge le dossier `src/` dans `chrome://extensions` (`Load unpacked`).
