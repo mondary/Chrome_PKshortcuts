@@ -18,28 +18,55 @@ const DEV_RELOAD_CHECK_DELAY_MS = 3000;
 function setupDevAutoReload() {
   const manifest = chrome.runtime.getManifest();
   if (manifest.update_url) return;
-  if (!chrome.alarms?.create) return;
 
+  // Vérifie même si l'alarme manque : quand un changement de permissions n'a
+  // pas encore été rechargé, le manifeste chargé est périmé et `chrome.alarms`
+  // est absent — c'est précisément ce cas qu'il faut rattraper pour ne pas
+  // rester bloqué sur une version périmée.
+  setTimeout(() => void checkDevManifestVersion(), DEV_RELOAD_CHECK_DELAY_MS);
+
+  if (!chrome.alarms?.create) return;
   chrome.alarms.create(DEV_RELOAD_ALARM, { periodInMinutes: 1 });
   chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === DEV_RELOAD_ALARM) void checkDevManifestVersion();
   });
 
   void checkDevManifestVersion();
-  setTimeout(() => void checkDevManifestVersion(), DEV_RELOAD_CHECK_DELAY_MS);
 }
 
 async function checkDevManifestVersion() {
   try {
     const currentVersion = chrome.runtime.getManifest().version;
-    const url = `${chrome.runtime.getURL("manifest.json")}?t=${Date.now()}`;
-    const response = await fetch(url, { cache: "no-store" });
-    if (!response.ok) return;
-    const next = await response.json();
-    if (next.version && next.version !== currentVersion) {
+    const diskVersion = await readDiskManifestVersion();
+    if (diskVersion && diskVersion !== currentVersion) {
       chrome.runtime.reload();
     }
   } catch {}
+}
+
+async function readDiskManifestVersion() {
+  try {
+    if (chrome.runtime.getPackageDirectoryEntry) {
+      const root = await chrome.runtime.getPackageDirectoryEntry();
+      const entry = await new Promise((resolve, reject) =>
+        root.getFile("manifest.json", {}, resolve, reject)
+      );
+      const file = await new Promise((resolve, reject) => entry.file(resolve, reject));
+      const text = await file.text();
+      return JSON.parse(text).version || null;
+    }
+  } catch {}
+
+  try {
+    const response = await fetch(`${chrome.runtime.getURL("manifest.json")}?t=${Date.now()}`, {
+      cache: "no-store"
+    });
+    if (!response.ok) return null;
+    const next = await response.json();
+    return next.version || null;
+  } catch {
+    return null;
+  }
 }
 
 setupDevAutoReload();

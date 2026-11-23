@@ -6,11 +6,17 @@ Historique des releases de PK Chrome Shortcuts.
 
 ## TODO — Roadmap
 
-Statut : `2026.11.17`
+Statut : `2026.11.18`
 
 ---
 
 ## Releases
+
+### [2026.11.18] - 2026-11-23
+
+#### Fixed
+- auto-reload dev : le contrôle de version est déplacé avant le garde-fou `chrome.alarms`. Quand un changement de permissions n'était pas encore rechargé, ce garde-fou sortait de la fonction et la copie locale restait bloquée sur un manifeste périmé (v2026.11.12 pendant 5 jours). Le service worker lit `background.js` sur disque à chaque réveil : la correction s'auto-applique au réveil suivant, sans redémarrage de Chrome.
+- lecture du manifeste sur disque via `chrome.runtime.getPackageDirectoryEntry()` (avec repli `fetch`), insensible au cache de ressources.
 
 ### [2026.11.17] - 2026-11-23
 
